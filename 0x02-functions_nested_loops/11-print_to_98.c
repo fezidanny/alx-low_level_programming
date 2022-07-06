@@ -1,0 +1,12 @@
+#include <stdio.h>
+#include "main.h"
+
+/**
+ *print_to_98 - check main
+ * @n: An integer input n
+ * Description: prints all natural numbers from n to 98, followed by new line
+ * Return: Nothing
+ */
+
+void print_to_98(int n)
+{
