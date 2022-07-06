@@ -6,7 +6,7 @@
  * @n: an integer input n
  * @i: An integer input i
  * Description: function that adds two integers
- * Returns: The sum of n and i
+ * Return: The sum of n and i
  */
 
 int add(int n, int i)
