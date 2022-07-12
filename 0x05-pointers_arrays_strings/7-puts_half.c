@@ -1,29 +1,35 @@
 #include "holberton.h"
 
 /**
- * puts_hair - prints half of a string, followed by a new line.
- * @str: the string to be manipulated.
- *
- * Return: nothing.
- */
+  * puts_half - Prints half of a string
+  * @str: The string to print
+  *
+  * Return: void
+  */
 void puts_half(char *str)
 {
-	int i = 0, j;
+	int j = 0;
+	int k;
 
-	for (; str[i] != '\0'; i++)
-		;
-
-	if (i % 2)
+	while (str[j] != '\0')
 	{
-		j = (i - 1) / 2;
-		for (; j < (i - 1); j++)
-			_putchar(str[j + 1]);
+		j++;
+	}
+
+	if (j % 2 == 1)
+	{
+		k = (j - 1) / 2;
+		k += 1;
 	}
 	else
 	{
-		j = i / 2;
-		for (; j < i; j++)
-			_putchar(str[j]);
+		k = j / 2;
 	}
-	_putchar(10);
+
+	for (; k < j; k++)
+	{
+		_putchar(str[k]);
+	}
+
+	_putchar('\n');
 }
