@@ -2,29 +2,37 @@
 #include "holberton.h"
 
 /**
- * _strdup - returns a pointer to a newly allocated space in memory,
- * which contains a copy of the string given as a parameter.
- * @str: the string to be copied to another portion of memory.
+ * str_concat - concatenates two strings.
+ * @s1: first string to be copied
+ * @s2: second string to be copied
  *
- * Return: a pointer to a newly allocated space in memory
+ * Return: newly allocated portion of memory containing s1 and s2
  */
-char *_strdup(char *str)
+char *str_concat(char *s1, char *s2)
 {
-	char *s;
-	int len = 0, i;
+	char *concat;
+	int s1_len = 0, s2_len = 0;
+	int i, j, size;
 
-	if (str == NULL)
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+
+	while (s1[s1_len] != '\0')
+		s1_len++;
+	while (s2[s2_len] != '\0')
+		s2_len++;
+
+	size = s1_len + s2_len;
+	concat = malloc(sizeof(char) * (size + 1));
+	if (concat == NULL)
 		return (NULL);
+	for (i = 0; i < s1_len; i++)
+		concat[i] = s1[i];
+	for (j = 0; i < size && j < s2_len; i++, j++)
+		concat[i] = s2[j];
+	concat[i] = '\0';
 
-	while (str[len] != '\0')
-		len++;
-
-	s = malloc(sizeof(char) * (len + 1));
-	if (s == NULL)
-		return (NULL);
-
-	for (i = 0; i < len; i++)
-		s[i] = str[i];
-	s[i] = '\0';
-	return (s);
+	return (concat);
 }
