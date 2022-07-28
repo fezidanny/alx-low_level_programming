@@ -1,33 +1,47 @@
 #include "holberton.h"
+#include <stdlib.h>
+
+#define ERR_MSG "Error"
+
+int _isdigit(char *s);
 
 /**
- * _realloc -  reallocates a memory block using malloc and free
- * @ptr: pointer
- * @old_size: old size
- * @new_size: new size
- * Return: pointer
+ * main - takes two numbers as arguments and outputs the product.
+ * @argc: the number of arguments including name of program.
+ * @argv: an array of arguments
+ *
+ * Return: 0 if successful.
  */
-void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
+int main(int argc, char *argv[])
 {
-	char *clone, *relloc;
-	unsigned int i;
-
-	if (ptr != NULL)
-	clone = ptr;
-	else
-	{ return (malloc(new_size)); }
-	if (new_size == old_size)
-	return (ptr);
-	if (new_size == 0 && ptr != NULL)
-	{ free(ptr);
-	return (0); }
-	relloc = malloc(new_size);
-	if (relloc == NULL)
-	return (0);
-	for (i = 0; i < (old_size || i < new_size); i++)
+	int i;
+	if (argc != 3)
 	{
-		*(relloc + i) = clone[i];
+		for (i = 0; ERR_MSG[i] != '\0'; i++)
+			_putchar(ERR_MSG[i]);
+		_putchar(10);
+		exit(98);
 	}
-	free(ptr);
-return (relloc);
+	if (_isdigit(argv[1]) == 0)
+		printf("%s\n", argv[1]);
+		
+	return (0);
+}
+
+/**
+ * isdigit - checks if string is a number or not
+ * @s: the string to be checked
+ *
+ * Return: 1 if true, else 0.
+ */
+
+int _isdigit(char *s)
+{
+	while (*s)
+	{
+		if (*s < 48 || *s > 57)
+			return (1);
+		s++;
+	}
+	return (0);
 }
