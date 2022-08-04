@@ -1,0 +1,1 @@
+#ifndef _VARI_FUNCTIONS_H
